@@ -704,7 +704,9 @@ class _SlidingBoxState extends State<SlidingBox> with TickerProviderStateMixin {
   void _onGestureTap() {
     if (_isBoxAnimating == true) return;
     if (_isSearchBoxVisible && widget.backdrop?.appBar?.searchBox?.draggableBody == false) return;
-    widget.controller != null && widget.controller!.isBoxOpen ? widget.controller?.closeBox() : widget.controller?.openBox();
+    if (widget.controller != null && widget.controller!.isBoxOpen) {
+      widget.controller?.closeBox();
+    }
   }
 
   ///---------------------------------
